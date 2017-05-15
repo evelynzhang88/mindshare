@@ -1,0 +1,507 @@
+@mixin fullabsolute($left,$top,$w,$h,$zindex) {
+    position: absolute;
+    left: $left;
+    top: $top;
+    z-index: $zindex;
+    @include size($w, $h);
+}
+
+/*Common setting for all page*/
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+//for preload
+.preload {
+    @include fullabsolute(0, 0, 100%, 100%, 10);
+    .logo {
+        padding-top: 3.8rem;
+        margin: 0 auto;
+    }
+    .progress {
+        margin-top: 0.6rem;
+        font-size: 0.68rem;
+        color: #524238;
+        text-align: center;
+    }
+    .tips-audio {
+        position: absolute;
+        @include size(5.81rem, 0.61rem);
+        bottom: 0.8rem;
+        left: 50%;
+        margin-left: -2.9rem;
+        color: #524238;
+        text-align: center;
+    }
+}
+
+.logo {
+    @include size(3.28rem, 2.43rem);
+}
+
+//for terms-pop
+.terms-pop {
+    background: transparent;
+    .inner {
+        @include size(7.5rem, 10.79rem);
+        background: url("../images/pop-bg.png") no-repeat;
+        background-size: 100%;
+        box-sizing: border-box;
+        padding-top: 1rem;
+    }
+    .title {
+        background: transparent;
+        color: #9eaee5;
+        font-size: 0.52rem;
+        padding: 0;
+    }
+    .pcontent {
+        text-align: center;
+        margin: 0;
+        padding: 0;
+        .subtitle {
+            display: inline-block;
+            background: #a5a8e0;
+            color: #fff;
+            font-size: 0.3rem;
+            font-weight: normal;
+            padding: 0.04rem 0.2rem;
+            border-radius: 5px;
+            margin-bottom: 0.1rem;
+        }
+        .des {
+            color: #6b6b6b;
+            font-size: 0.24rem;
+            line-height: 1.8;
+        }
+        .product-name {
+            color: #6b6b6b;
+            font-size: 0.22rem;
+        }
+    }
+    .btn-close {
+        top: auto;
+        bottom: 1rem;
+        left: 50%;
+        background: #9eaee5;
+        border-radius: 100%;
+        @include size(0.6rem, 0.6rem);
+    }
+}
+
+.pin {
+    opacity: 0;
+    z-index: -10;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    @include size(100%, 100%);
+    box-sizing: border-box;
+    overflow: hidden;
+    @include transition(opacity 1s);
+    //display: none;
+    &.current {
+        display: block;
+        opacity: 1;
+        z-index: 1;
+    }
+}
+
+.btn {
+    text-align: center;
+    display: block;
+    width: 4.12rem;
+    height: 1.22rem;
+    line-height: 1.22rem;
+    margin: 0 auto;
+    background: #8b807a;
+    color: #fff;
+    font-size: 0.6rem;
+    box-sizing: border-box;
+    border-radius: 3px;
+}
+
+//for wrapper
+.wrapper {
+    opacity: 0;
+    @include fullabsolute(0, 0, 100%, 100%, 1);
+    background: #f6f6f6;
+    color: #524238;
+}
+
+.container {
+    @include fullabsolute(0, 0, 100%, 100%, 10);
+}
+
+//for icon-bgm
+.icon-bgm {
+    position: fixed;
+    top: 0.5rem;
+    left: 0.5rem;
+    z-index: 10;
+    @include size(0.81rem, 0.81rem);
+    background:#f5f5f5 url('../images/icon_music.png') no-repeat;
+    background-size: 100%;
+    border-radius: 100%;
+    &:before{
+        content: '';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 100%;
+        height: 1px;
+        background: #524238;
+        @include transform(rotate(49deg));
+    }
+    &.down {
+        z-index: 1;
+    }
+    &.play{
+        @include animation(circle 2s linear infinite);
+        @include keyframes(circle){
+            0%{
+                @include transform(rotate(0deg));
+            }
+            100%{
+                @include transform(rotate(360deg));
+            }
+        }
+        &:before{
+            display: none;
+        }
+    }
+}
+
+/*
+  pin-landing
+*/
+#pin-landing {
+    padding-top: 1.6rem;
+    background: url('../images/bg-1.jpg') center center no-repeat;
+    background-size: cover;
+    .des {
+        font-size: 0.38rem;
+        text-align: center;
+    }
+    .line {
+        width: 0.7rem;
+        height: 1px;
+        background: #524238;
+        border: none;
+        margin: 0.4rem auto;
+    }
+    .slogan {
+        @include size(4.43rem, 4.47rem);
+        margin: 0 auto;
+        background: url('../images/slogan.png') no-repeat;
+        background-size: 100%;
+        text-indent: -999em;
+    }
+    .btn-saytomom {
+        position: relative;
+        text-align: center;
+        width: 5rem;
+        margin: 0.4rem auto;
+        .text {
+            display: inline-block;
+            background: #524238;
+            color: #fff;
+            border-radius: 2px;
+            padding: 0.1rem 0.4rem;
+            letter-spacing: 0.1rem;
+        }
+        .tips {
+            display: block;
+            position: absolute;
+            left: -2rem;
+            top: 1rem;
+            @include size(3rem, 3rem);
+            background: url("../images/spritesheet.png") no-repeat;
+            background-size: 100%;
+            @include animation(tipani 3s steps(22) infinite);
+            @include keyframes(tipani) {
+                0% {
+                    background-position: 0 0;
+                }
+                100% {
+                    background-position: 0 100%;
+                }
+            }
+        }
+    }
+}
+
+/*
+  For pin-fillform
+*/
+#pin-form {
+    background: url("../images/bg-2.jpg") center center no-repeat;
+    background-size: cover;
+    .pin-form-inner {
+        position: relative;
+        width: 80vw;
+        padding: 0.25rem;
+        margin: 0 auto;
+        border: #fff 1px solid;
+        border-radius: 3px;
+    }
+    .p1-t1 {
+        position: relative;
+        z-index: 2;
+        @include size(4.58rem, 4.54rem);
+        margin-bottom: 1rem;
+    }
+    #form-contact {
+        position: relative;
+        z-index: 2;
+        padding: 0.8rem 0.4rem;
+        margin: 0 auto;
+        background: #fff;
+        border-radius: 3px;
+        .input-box {
+            position: relative;
+            margin-bottom: 0.2rem;
+            //text-align: center;
+            input[type="text"],
+            input[type="tel"],
+            select {
+                display: inline-block;
+                width: 100%;
+                padding: 0.3rem 0.2rem;
+                box-sizing: border-box;
+                font-size: 0.5rem;
+                background: transparent;
+                border: #524238 1px solid;
+                border-radius: 5px;
+            }
+            &.input-box-gender {
+                margin-bottom: 0;
+            }
+        }
+        .input-box-gender{
+            .item-gender{
+                position: relative;
+                padding-right: 0.6rem;
+                &:after{
+                    content: '';
+                    display: inline-block;
+                    position: absolute;
+                    right: 0;
+                    top: 0.04rem;
+                    @include size(0.48rem,0.5rem);
+                    background: url("../images/icon-gender.png") no-repeat;
+                    background-size: 100%;
+                }
+                &.item-gender-girl{
+                    &:after{
+                        background-position: 0 100%;
+                    }
+                }
+
+            }
+        }
+        .title {
+            display: block;
+            font-size: 0.6rem;
+            margin-bottom: 0.15rem;
+        }
+        .input-box {
+            margin-bottom: 0.4rem;
+        }
+        .select-box {
+            position: relative;
+            &:after {
+                content: '';
+                display: block;
+                position: absolute;
+                bottom: 0.4rem;
+                right: 0.4rem;
+                border-top: #8b807a 0.3rem solid;
+                border-left: transparent 0.24rem solid;
+                border-right: transparent 0.24rem solid;
+            }
+            input[type="text"] {
+                position: relative;
+                z-index: 1;
+            }
+            select {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                z-index: 2;
+                opacity: 0;
+            }
+        }
+        .input-box-city-district {
+            .select-box {
+                display: inline-block;
+                width: 48%;
+            }
+        }
+
+    }
+    .btn-submit {
+        width: 100%;
+        margin-top: 0.6rem;
+        border-radius: 3px;
+    }
+}
+
+//for pin-3
+.pin-3 {
+    background: url("../images/bg-2.jpg") center center no-repeat;
+    background-size: cover;
+    .v-content {
+        width: 8.79rem;
+    }
+    .main-content {
+        position: relative;
+        margin-top: 0.44rem;
+        .custom-text {
+            position: absolute;
+            top: 0.4rem;
+            left: 0.76rem;
+            z-index: 2;
+            font-size: 0.38rem;
+            color: #524238;
+        }
+    }
+    .btn {
+        font-size: 0.56rem;
+    }
+    .buttons {
+        margin: 0.4rem 0;
+        .btn {
+            background: #fff;
+            border: #8a7f79 1px solid;
+            color: #8a7f79;
+            //display: inline-block;
+        }
+        .btn-switch {
+            float: left;
+        }
+        .btn-custom {
+            float: right;
+        }
+    }
+    .btn-sent {
+        width: 100%;
+    }
+    .customtext-pop {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 10;
+        background: rgba(0, 0, 0, 0.6);
+        .inner {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 10rem;
+            background: #f5f5f5;
+            padding: 2rem 1rem 1rem;
+            box-sizing: border-box;
+        }
+        .tips{
+            position: absolute;
+            //top: .7rem;
+            //left: .7rem;
+            //opacity: 0.6;
+            //position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            width: 100%;
+            text-align: center;
+            padding: 0.3rem;
+            background: rgba(138,128,121,0.7);
+            color: #fff;
+        }
+        .cw-wrap {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            border: #fff 1px solid;
+            border-radius: 3px;
+            padding: 0.4rem;
+            box-sizing: border-box;
+
+            .text-num{
+                position: absolute;
+                bottom: .7rem;
+                right: .7rem;
+                opacity: 0.6;
+            }
+        }
+        #custom-words {
+            width: 100%;
+            height: 100%;
+            margin: 0 auto;
+            font-size: .4rem;
+            line-height: 2;
+            padding: 0.3rem;
+            box-sizing: border-box;
+        }
+        .btn {
+            position: absolute;
+            top: 0.5rem;
+            left: 1rem;
+            z-index: 2;
+            @include size(1rem, 1rem);
+            background: url("../images/icon.png") no-repeat;
+            background-size: 100%;
+            text-indent: -999em;
+        }
+        .btn-yes {
+            left: auto;
+            right: 1rem;
+            background-position: 0% 100%;
+        }
+    }
+}
+
+//for pin-share
+#pin-share {
+    background: #262626;
+    img {
+        width: auto;
+        height: calc(100vh - 3rem);
+    }
+    .tips{
+        //position: absolute;
+        //bottom: 0.3rem;
+        color: rgba(255,255,255,0.6);
+        font-size: 0.4rem;
+        width: 100%;
+        text-align: center;
+        margin-top: 0.2rem;
+    }
+    .btn-prev{
+        position: absolute;
+        @include size(0.29rem,0.53rem);
+        top: 0;
+        left: -0.8rem;
+        z-index: 2;
+        background: url("../images/btn-back-2.png") no-repeat;
+        background-size: 100%;
+    }
+}
+
+//for pc
+.pc-wrapper {
+    opacity: 0;
+    @include fullabsolute(0, 0, 100%, 100%, 1);
+    background: url("../images/pc-bg.jpg") no-repeat;
+    background-size: cover;
+    .pc-logo {
+        @include fullabsolute(30px, 30px, 104px, 36px, 1);
+    }
+    .v-content {
+        max-width: 466px;
+        max-height: 377px;
+    }
+}
