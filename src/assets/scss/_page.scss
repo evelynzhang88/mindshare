@@ -122,386 +122,94 @@ html, body {
     border-radius: 3px;
 }
 
+// show different block for landscape and portrait
+@media all and (orientation: landscape){
+  .portrait-scope{
+    display: none;
+  }
+  .wrapper{
+    display: block;
+  }
+}
+@media all and (orientation: portrait){
+  .portrait-scope{
+    display: block;
+  }
+  .wrapper{
+    display: none;
+  }
+}
+
+//for portrait-scope
+.portrait-scope{
+  .v-content{
+    width: 80vw;
+  }
+}
+
+
 //for wrapper
 .wrapper {
     opacity: 0;
     @include fullabsolute(0, 0, 100%, 100%, 1);
-    background: #f6f6f6;
-    color: #524238;
+    background: #000;
+    color: #fff;
 }
 
-.container {
-    @include fullabsolute(0, 0, 100%, 100%, 10);
-}
+//for pin-animate
+#pin-animate{
+  .v-content{
 
-//for icon-bgm
-.icon-bgm {
-    position: fixed;
-    top: 0.5rem;
-    left: 0.5rem;
-    z-index: 10;
-    @include size(0.81rem, 0.81rem);
-    background:#f5f5f5 url('../images/icon_music.png') no-repeat;
-    background-size: 100%;
-    border-radius: 100%;
-    &:before{
-        content: '';
-        display: block;
-        position: absolute;
-        left: 0;
-        top: 50%;
-        width: 100%;
-        height: 1px;
-        background: #524238;
-        @include transform(rotate(49deg));
-    }
-    &.down {
-        z-index: 1;
-    }
-    &.play{
-        @include animation(circle 2s linear infinite);
-        @include keyframes(circle){
-            0%{
-                @include transform(rotate(0deg));
-            }
-            100%{
-                @include transform(rotate(360deg));
-            }
+  }
+  .progress{
+    position: absolute;
+    z-index: 2;
+    top: 5.9rem;
+    left: 5.1rem;
+    @include size(8.48rem,0.56rem);
+    //-webkit-mask: url(https://mdn.mozillademos.org/files/12676/star.svg);
+    .mask{
+      opacity: 0.4;
+      //background: url("../images/progress-bar.png") no-repeat;
+      //background-size: 100%;
+      @include fullabsolute(0,0,100%,100%,2);
+      -webkit-mask: url("../images/mask.png");
+      -webkit-mask-size: auto 100%;
+      -webkit-mask-position: 100% 0;
+      &.move{
+        @include animation(moveMask 1.2s steps(15) 1 forwards);
+      }
+      @keyframes moveMask {
+        0%{
+          opacity: 0.4;
+          -webkit-mask-position: 100% 0;
         }
-        &:before{
-            display: none;
+        100%{
+          opacity: 1;
+          -webkit-mask-position: 0% 0;
         }
+      }
     }
-}
-
-/*
-  pin-landing
-*/
-#pin-landing {
-    padding-top: 1.6rem;
-    background: url('../images/bg-1.jpg') center center no-repeat;
-    background-size: cover;
-    .des {
-        font-size: 0.38rem;
-        text-align: center;
+    img{
+      //display: none;
+      @include size(8.48rem,0.56rem);
     }
-    .line {
-        width: 0.7rem;
-        height: 1px;
-        background: #524238;
-        border: none;
-        margin: 0.4rem auto;
-    }
-    .slogan {
-        @include size(4.43rem, 4.47rem);
-        margin: 0 auto;
-        background: url('../images/slogan.png') no-repeat;
-        background-size: 100%;
-        text-indent: -999em;
-    }
-    .btn-saytomom {
-        position: relative;
-        text-align: center;
-        width: 5rem;
-        margin: 0.4rem auto;
-        .text {
-            display: inline-block;
-            background: #524238;
-            color: #fff;
-            border-radius: 2px;
-            padding: 0.1rem 0.4rem;
-            letter-spacing: 0.1rem;
-        }
-        .tips {
-            display: block;
-            position: absolute;
-            left: -2rem;
-            top: 1rem;
-            @include size(3rem, 3rem);
-            background: url("../images/spritesheet.png") no-repeat;
-            background-size: 100%;
-            @include animation(tipani 3s steps(22) infinite);
-            @include keyframes(tipani) {
-                0% {
-                    background-position: 0 0;
-                }
-                100% {
-                    background-position: 0 100%;
-                }
-            }
-        }
-    }
-}
-
-/*
-  For pin-fillform
-*/
-#pin-form {
-    background: url("../images/bg-2.jpg") center center no-repeat;
-    background-size: cover;
-    .pin-form-inner {
-        position: relative;
-        width: 80vw;
-        padding: 0.25rem;
-        margin: 0 auto;
-        border: #fff 1px solid;
-        border-radius: 3px;
-    }
-    .p1-t1 {
-        position: relative;
-        z-index: 2;
-        @include size(4.58rem, 4.54rem);
-        margin-bottom: 1rem;
-    }
-    #form-contact {
-        position: relative;
-        z-index: 2;
-        padding: 0.8rem 0.4rem;
-        margin: 0 auto;
-        background: #fff;
-        border-radius: 3px;
-        .input-box {
-            position: relative;
-            margin-bottom: 0.2rem;
-            //text-align: center;
-            input[type="text"],
-            input[type="tel"],
-            select {
-                display: inline-block;
-                width: 100%;
-                padding: 0.3rem 0.2rem;
-                box-sizing: border-box;
-                font-size: 0.5rem;
-                background: transparent;
-                border: #524238 1px solid;
-                border-radius: 5px;
-            }
-            &.input-box-gender {
-                margin-bottom: 0;
-            }
-        }
-        .input-box-gender{
-            .item-gender{
-                position: relative;
-                padding-right: 0.6rem;
-                &:after{
-                    content: '';
-                    display: inline-block;
-                    position: absolute;
-                    right: 0;
-                    top: 0.04rem;
-                    @include size(0.48rem,0.5rem);
-                    background: url("../images/icon-gender.png") no-repeat;
-                    background-size: 100%;
-                }
-                &.item-gender-girl{
-                    &:after{
-                        background-position: 0 100%;
-                    }
-                }
-
-            }
-        }
-        .title {
-            display: block;
-            font-size: 0.6rem;
-            margin-bottom: 0.15rem;
-        }
-        .input-box {
-            margin-bottom: 0.4rem;
-        }
-        .select-box {
-            position: relative;
-            &:after {
-                content: '';
-                display: block;
-                position: absolute;
-                bottom: 0.4rem;
-                right: 0.4rem;
-                border-top: #8b807a 0.3rem solid;
-                border-left: transparent 0.24rem solid;
-                border-right: transparent 0.24rem solid;
-            }
-            input[type="text"] {
-                position: relative;
-                z-index: 1;
-            }
-            select {
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                z-index: 2;
-                opacity: 0;
-            }
-        }
-        .input-box-city-district {
-            .select-box {
-                display: inline-block;
-                width: 48%;
-            }
-        }
-
-    }
-    .btn-submit {
-        width: 100%;
-        margin-top: 0.6rem;
-        border-radius: 3px;
-    }
-}
-
-//for pin-3
-.pin-3 {
-    background: url("../images/bg-2.jpg") center center no-repeat;
-    background-size: cover;
-    .v-content {
-        width: 8.79rem;
-    }
-    .main-content {
-        position: relative;
-        margin-top: 0.44rem;
-        .custom-text {
-            position: absolute;
-            top: 0.4rem;
-            left: 0.76rem;
-            z-index: 2;
-            font-size: 0.38rem;
-            color: #524238;
-        }
-    }
-    .btn {
-        font-size: 0.56rem;
-    }
-    .buttons {
-        margin: 0.4rem 0;
-        .btn {
-            background: #fff;
-            border: #8a7f79 1px solid;
-            color: #8a7f79;
-            //display: inline-block;
-        }
-        .btn-switch {
-            float: left;
-        }
-        .btn-custom {
-            float: right;
-        }
-    }
-    .btn-sent {
-        width: 100%;
-    }
-    .customtext-pop {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 10;
-        background: rgba(0, 0, 0, 0.6);
-        .inner {
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            height: 10rem;
-            background: #f5f5f5;
-            padding: 2rem 1rem 1rem;
-            box-sizing: border-box;
-        }
-        .tips{
-            position: absolute;
-            //top: .7rem;
-            //left: .7rem;
-            //opacity: 0.6;
-            //position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 1;
-            width: 100%;
-            text-align: center;
-            padding: 0.3rem;
-            background: rgba(138,128,121,0.7);
-            color: #fff;
-        }
-        .cw-wrap {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            border: #fff 1px solid;
-            border-radius: 3px;
-            padding: 0.4rem;
-            box-sizing: border-box;
-
-            .text-num{
-                position: absolute;
-                bottom: .7rem;
-                right: .7rem;
-                opacity: 0.6;
-            }
-        }
-        #custom-words {
-            width: 100%;
-            height: 100%;
-            margin: 0 auto;
-            font-size: .4rem;
-            line-height: 2;
-            padding: 0.3rem;
-            box-sizing: border-box;
-        }
-        .btn {
-            position: absolute;
-            top: 0.5rem;
-            left: 1rem;
-            z-index: 2;
-            @include size(1rem, 1rem);
-            background: url("../images/icon.png") no-repeat;
-            background-size: 100%;
-            text-indent: -999em;
-        }
-        .btn-yes {
-            left: auto;
-            right: 1rem;
-            background-position: 0% 100%;
-        }
-    }
-}
-
-//for pin-share
-#pin-share {
-    background: #262626;
-    img {
-        width: auto;
-        height: calc(100vh - 3rem);
-    }
-    .tips{
-        //position: absolute;
-        //bottom: 0.3rem;
-        color: rgba(255,255,255,0.6);
-        font-size: 0.4rem;
-        width: 100%;
-        text-align: center;
-        margin-top: 0.2rem;
-    }
-    .btn-prev{
-        position: absolute;
-        @include size(0.29rem,0.53rem);
-        top: 0;
-        left: -0.8rem;
-        z-index: 2;
-        background: url("../images/btn-back-2.png") no-repeat;
-        background-size: 100%;
-    }
-}
-
-//for pc
-.pc-wrapper {
+  }
+  .p1-2{
     opacity: 0;
-    @include fullabsolute(0, 0, 100%, 100%, 1);
-    background: url("../images/pc-bg.jpg") no-repeat;
-    background-size: cover;
-    .pc-logo {
-        @include fullabsolute(30px, 30px, 104px, 36px, 1);
-    }
-    .v-content {
-        max-width: 466px;
-        max-height: 377px;
-    }
+    position: absolute;
+    z-index: 2;
+    left: 13.3rem;
+    top: 3.4rem;
+    @include size(3.28rem,3.27rem);
+  }
+  .ani-block{
+    opacity: 0;
+    position: relative;
+    z-index: 1;
+    @include size(22.08rem,10.86rem);
+    background: url("../images/P2-BG_00040.jpg") no-repeat;
+    background-size: 100%;
+    animation-delay: 500ms;
+  }
 }

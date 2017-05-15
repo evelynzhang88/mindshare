@@ -8,22 +8,48 @@
     <meta name="x5-fullscreen" content="true">
     <meta name="full-screen" content="yes">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
-    <link rel="stylesheet" type="text/css" href="dist/css/style.css"/>
-    <script src="dist/js/all_controller.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/src/dist/css/style.css"/>
+    <script src="src/dist/js/all_controller.min.js"></script>
 </head>
 <body class="page-home">
     <div class="preload">
         <div class="logo">
-            <img src="dist/images/logo.png" alt="MindShare"/>
+            <!--<img src="dist/images/logo.png" alt="MindShare"/>-->
         </div>
         <div class="progress">99%</div>
         <div class="tips-audio">
-            <img src="dist/images/icon-volume.png" alt="MindShare"/>
+            <!--<img src="dist/images/icon-volume.png" alt="MindShare"/>-->
         </div>
     </div>
-    <!--main content-->
+    <div class="portrait-scope">
+        <div class="v-content">
+            <img src="src/dist/images/portrait-tips.jpg" alt=""/>
+        </div>
+    </div>
+    <!--main content for landscape-->
     <div class="wrapper animate">
-        kdkdkkd
+        <!-- pin1--animation-->
+        <div class="pin-1" id="pin-animate">
+            <div class="v-content">
+                <div class="progress">
+                    <div class="mask">
+                        <img src="src/dist/images/progress-bar.png" alt=""/>
+                    </div>
+                </div>
+                <div class="p1-2 animate">
+                    <img src="src/dist/images/logo-2.png" alt=""/>
+                </div>
+                <div class="ani-block animate delay1">
+                    <!-- do sequence animation-->
+                    <img src="src/dist/images/p2-ani/P2-ANI_00040.png" alt=""/>
+                </div>
+                <div class="content animate">
+                    MIND SHARE CONTENT MINDSHARE CONTENT MINDSHARE CONTENT MINDSHARE CONTENT
+                </div>
+            </div>
+        </div>
+        <div class="pin-2" id="pin-video"></div>
+        <div class="pin-3" id="pin-qrcode"></div>
     </div>
 </body>
 </html>

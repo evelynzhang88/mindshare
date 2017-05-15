@@ -17,10 +17,10 @@
     var recalc = function () {
         var width = docEl.clientWidth,
 			height = docEl.clientHeight;
-        if (width / dpr > 1080) {
-            width = 1080 * dpr;
+        if (width / dpr > 2208) {
+            width = 2208 * dpr;
         }
-        docEl.style.fontSize = 100 * (width / 1080) + 'px';
+        docEl.style.fontSize = 100 * (width / 2208) + 'px';
         //if(width/height>1080/1921){
         //	docEl.style.fontSize = 100 * (height / 1921) + 'px';
         //
