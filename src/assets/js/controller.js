@@ -116,10 +116,8 @@
         var showCircle = setTimeout(function(){
             $('.p1-2').addClass('fade');
             $('.ani-block').addClass('fade');
+            $('.content').addClass('fade');
         },moveTime * 1000);
-        var showAniBlock = setTimeout(function(){
-
-        },(moveTime+1)*1000);
 
     };
 

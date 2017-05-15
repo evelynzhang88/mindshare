@@ -850,6 +850,7 @@ html, body {
   top: 3.4rem;
   width: 3.28rem;
   height: 3.27rem;
+  animation-delay: 500ms;
 }
 #pin-animate .ani-block {
   opacity: 0;
@@ -859,5 +860,16 @@ html, body {
   height: 10.86rem;
   background: url("../images/P2-BG_00040.jpg") no-repeat;
   background-size: 100%;
-  animation-delay: 500ms;
+  animation-delay: 1200ms;
+}
+#pin-animate .content {
+  opacity: 0;
+  position: absolute;
+  width: 7.6rem;
+  height: .7rem;
+  left: 5.4rem;
+  top: 4.7rem;
+  overflow: hidden;
+  z-index: 3;
+  background: red;
 }
