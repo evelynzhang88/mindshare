@@ -90,7 +90,6 @@
     };
 
 
-
     //bind Events
     controller.prototype.bindEvent = function () {
         var self = this;
@@ -116,10 +115,14 @@
             if(deltaX<-100){
             //    go right
                 console.log(deltaX);
-                Common.gotoPin(1);
+                self.goVideoPage();
             }
             //console.log(deltaX);
         });
+
+    //    play the video
+
+
     };
 
     //do animation for page2
@@ -144,6 +147,8 @@
             clearTimeout(doSF);
         },(moveTime+3) * 1000);
 
+        //self.goVideoPage();
+
     };
 
     //Sequence Frame
@@ -166,6 +171,17 @@
         });
         SF.start();
     };
+
+    //go video page
+    controller.prototype.goVideoPage = function(){
+        Common.gotoPin(1);
+        var videoEle = document.getElementById('flash-video');
+        videoEle.play();
+        videoEle.addEventListener('ended',function(){
+            console.log('video end');
+            Common.gotoPin(2);
+        });
+    }
 
     controller.prototype.playaudio = function(){
         //    play audio

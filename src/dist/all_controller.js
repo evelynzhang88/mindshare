@@ -778,7 +778,6 @@ $(document).ready(function () {
     };
 
 
-
     //bind Events
     controller.prototype.bindEvent = function () {
         var self = this;
@@ -804,10 +803,14 @@ $(document).ready(function () {
             if(deltaX<-100){
             //    go right
                 console.log(deltaX);
-                Common.gotoPin(1);
+                self.goVideoPage();
             }
             //console.log(deltaX);
         });
+
+    //    play the video
+
+
     };
 
     //do animation for page2
@@ -832,6 +835,8 @@ $(document).ready(function () {
             clearTimeout(doSF);
         },(moveTime+3) * 1000);
 
+        //self.goVideoPage();
+
     };
 
     //Sequence Frame
@@ -854,6 +859,17 @@ $(document).ready(function () {
         });
         SF.start();
     };
+
+    //go video page
+    controller.prototype.goVideoPage = function(){
+        Common.gotoPin(1);
+        var videoEle = document.getElementById('flash-video');
+        videoEle.play();
+        videoEle.addEventListener('ended',function(){
+            console.log('video end');
+            Common.gotoPin(2);
+        });
+    }
 
     controller.prototype.playaudio = function(){
         //    play audio
