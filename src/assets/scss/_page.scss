@@ -207,11 +207,19 @@ html, body {
   .ani-block{
     opacity: 0;
     position: relative;
+    //left: 0;
+    //top: 0;
     z-index: 1;
     @include size(22.08rem,10.86rem);
+    //height: 100vh;
+    width: auto;
     background: url("../images/P2-BG_00040.jpg") no-repeat;
     background-size: 100%;
     animation-delay: 1200ms;
+    img{
+      height:100%;
+      width: auto;
+    }
   }
   .content{
     opacity: 0;

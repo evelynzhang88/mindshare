@@ -858,9 +858,14 @@ html, body {
   z-index: 1;
   width: 22.08rem;
   height: 10.86rem;
+  width: auto;
   background: url("../images/P2-BG_00040.jpg") no-repeat;
   background-size: 100%;
   animation-delay: 1200ms;
+}
+#pin-animate .ani-block img {
+  height: 100%;
+  width: auto;
 }
 #pin-animate .content {
   opacity: 0;

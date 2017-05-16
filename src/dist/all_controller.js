@@ -693,14 +693,6 @@ $(document).ready(function () {
 (function () {
     var controller = function () {
         this.hasShared = false;
-        //if getPrize is 0, no lottery
-        //if getPrize is 1, lottery and get prize
-        //if getPrize is 2, lottery and no prize
-        //this.getPrize = 0;
-        this.name = '';
-        this.constellation = '';
-        this.gender = '女生';
-        this.baseLink = 'http://lincoln.e0x233.com/2017motherday';
     };
     //init
     controller.prototype.init = function () {
@@ -725,7 +717,7 @@ $(document).ready(function () {
 
         var baseurl = 'src/dist/images/';
         var imagesArray = [
-            baseurl + 'logo.png',
+            baseurl + 'logo-2.png',
         ];
         var i = 0, j = 0;
         new preLoader(imagesArray, {
@@ -744,9 +736,12 @@ $(document).ready(function () {
                 //self.playaudio();
 
                 //test
-                self.startUp();
+                //self.startUp();
+
             }
         });
+        //alert('test');
+        self.startUp();
 
 
     };
@@ -761,35 +756,41 @@ $(document).ready(function () {
         //$('.wrapper').addClass('fade');
         //Common.gotoPin(0);
         self.bindEvent();
-        if(self.isLandScape()){
-            self.doAnimation();
-            //self.sequenceFrame();
-        }
-
-    };
-
-    controller.prototype.isLandScape = function(){
-        var self = this;
+        //alert('test');
+        console.log(111);
         if(window.innerWidth > window.innerHeight){
-            return true;
-        }else{
-            return false;
+            self.doAnimation();
         }
+
+        //if(self.isLandScape()){
+        //
+        //    //self.sequenceFrame();
+        //}
+
     };
+
+    //controller.prototype.isLandScape = function(){
+    //    var self = this;
+    //    if(window.innerWidth > window.innerHeight){
+    //        return true;
+    //    }else{
+    //        return false;
+    //    }
+    //};
 
 
     //bind Events
     controller.prototype.bindEvent = function () {
         var self = this;
-        screen.orientation.addEventListener('change', function() {
-            if(screen.orientation.type == 'landscape-primary'){
-                //landscape
-                self.doAnimation();
-            }else{
-            //    portrait
-
-            }
-        });
+        //screen.orientation.addEventListener('change', function() {
+        //    if(screen.orientation.type == 'landscape-primary'){
+        //        //landscape
+        //        self.doAnimation();
+        //    }else{
+        //    //    portrait
+        //
+        //    }
+        //});
 
         // touch left action
         var touchEle = $('#pin-animate');
