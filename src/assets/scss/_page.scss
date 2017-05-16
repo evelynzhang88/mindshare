@@ -223,5 +223,20 @@ html, body {
     overflow: hidden;
     z-index: 3;
     background: red;
+    .words{
+      position: absolute;
+      width: 100vw;
+      &.active{
+        @include animation(lefttoright 8s linear infinite);
+      }
+      @include keyframes(lefttoright){
+        0%{
+          @include transform(translateX(0%));
+        }
+        100%{
+          @include transform(translateX(-100%));
+        }
+      }
+    }
   }
 }

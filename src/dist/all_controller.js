@@ -810,6 +810,7 @@ $(document).ready(function () {
         },moveTime * 1000);
 
         var doSF = setTimeout(function(){
+            $('.content .words').addClass('active');
             self.sequenceFrame();
             clearTimeout(doSF);
         },(moveTime+3) * 1000);
