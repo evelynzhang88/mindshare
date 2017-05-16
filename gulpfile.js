@@ -46,8 +46,8 @@ var path = {
         './src/assets/*/*.{png,jpg,jpeg}',
         './src/assets/*/*/*.{png,jpg,jpeg}'
     ],
-    audio:[
-        './src/assets/audio/*'
+    media:[
+        './src/assets/media/*'
     ],
 };
 // Browser-sync
@@ -80,9 +80,9 @@ gulp.task('css',['clean'],function () {
 });
 
 //audio
-gulp.task('audio',['clean'],function () {
+gulp.task('media',['clean'],function () {
     // 1. 找到文件
-    gulp.src(path.audio)
+    gulp.src(path.media)
         .pipe(gulp.dest('./src/dist/media'));
 });
 
@@ -112,11 +112,11 @@ gulp.task("tinypng", function(){
 // Watch Files For Changes
 gulp.task('watch', ['clean'],function() {
     gulp.watch(path.css,['css']);
-    gulp.watch(path.audio,['audio']);
+    gulp.watch(path.media,['media']);
     gulp.watch(path.controllerJs,['scripts_controller']);
 });
 
 // Default Task
-gulp.task('default', ['watch', 'css','scripts_controller','audio','browser-sync']);
+gulp.task('default', ['watch', 'css','scripts_controller','media','browser-sync']);
 
 

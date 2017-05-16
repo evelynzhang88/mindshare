@@ -791,6 +791,23 @@ $(document).ready(function () {
 
             }
         });
+
+        // touch left action
+        var touchEle = $('#pin-animate');
+        var startX = 0;
+        touchEle.on('touchstart', function(e){
+            //console.log(e);
+            startX = e.changedTouches[0].clientX;
+        });
+        touchEle.on('touchend', function(e){
+            var deltaX = e.changedTouches[0].clientX - startX;
+            if(deltaX<-100){
+            //    go right
+                console.log(deltaX);
+                Common.gotoPin(1);
+            }
+            //console.log(deltaX);
+        });
     };
 
     //do animation for page2
