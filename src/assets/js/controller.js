@@ -75,6 +75,7 @@
         self.bindEvent();
         if(self.isLandScape()){
             self.doAnimation();
+            //self.sequenceFrame();
         }
 
     };
@@ -117,8 +118,35 @@
             $('.p1-2').addClass('fade');
             $('.ani-block').addClass('fade');
             $('.content').addClass('fade');
+            clearTimeout(showCircle);
         },moveTime * 1000);
 
+        var doSF = setTimeout(function(){
+            self.sequenceFrame();
+            clearTimeout(doSF);
+        },(moveTime+3) * 1000);
+
+    };
+
+    //Sequence Frame
+    controller.prototype.sequenceFrame = function(){
+        var self = this;
+        var i = 0;
+        var SF = new reqAnimate($('.ani-block'),{
+            fps: 10,
+            totalFrames: 20,
+            time: Infinity,
+            processAnimation:function(){
+                var imgSrc = 'src/dist/images/p2-ani/P2-ANI_000'+(40+i)+'.png';
+                $('.ani-block img').attr('src',imgSrc);
+                //console.log(i);
+                i++;
+                if(i>19){
+                    i=0;
+                };
+            }
+        });
+        SF.start();
     };
 
     controller.prototype.playaudio = function(){

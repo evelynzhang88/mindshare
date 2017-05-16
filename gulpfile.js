@@ -33,6 +33,7 @@ var path = {
     controllerJs:[
         './src/assets/js/lib/zepto.min.js',
         './src/assets/js/lib/pre-loader.js',
+        './src/assets/js/lib/reqAnimate.js',
         //'./assets/js/lib/cookie.js',
         './src/assets/js/rem.js',
         './src/assets/js/common.js',
@@ -89,7 +90,7 @@ gulp.task('audio',['clean'],function () {
 gulp.task('scripts_controller',['clean'], function() {
     return gulp.src(path.controllerJs)
         .pipe(concat('all_controller.js'))
-        .pipe(gulp.dest('dist'))
+        .pipe(gulp.dest('./src/dist'))
         .pipe(rename('all_controller.min.js'))
         .pipe(uglify())
         .pipe(gulp.dest('./src/dist/js'));
