@@ -32,6 +32,7 @@ var path = {
     ],
     controllerJs:[
         './src/assets/js/lib/zepto.min.js',
+        './src/assets/js/lib/hammer.min.js',
         './src/assets/js/lib/pre-loader.js',
         './src/assets/js/lib/reqAnimate.js',
         //'./assets/js/lib/cookie.js',

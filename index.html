@@ -9,7 +9,14 @@
     <meta name="full-screen" content="yes">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
     <link rel="stylesheet" type="text/css" href="/src/dist/css/style.css"/>
-    <script src="src/dist/js/all_controller.min.js"></script>
+    <script src="/src/assets/js/lib/zepto.min.js"></script>
+    <script src="/src/assets/js/lib/hammer.min.js"></script>
+    <script src="/src/assets/js/lib/pre-loader.js"></script>
+    <script src="/src/assets/js/lib/reqAnimate.js"></script>
+    <script src="/src/assets/js/rem.js"></script>
+    <script src="/src/assets/js/common.js"></script>
+    <script src="/src/assets/js/controller.js"></script>
+    <!--<script src="src/dist/js/all_controller.min.js"></script>-->
 </head>
 <body class="page-home">
     <div class="preload">
@@ -22,8 +29,9 @@
         </div>
     </div>
     <div class="portrait-scope">
+        <div class="blur-bg"></div>
         <div class="v-content">
-            <img src="src/dist/images/portrait-tips.jpg" alt=""/>
+            <img src="src/dist/images/portrait-tips.png" alt=""/>
         </div>
     </div>
     <!--main content for landscape-->
@@ -54,8 +62,12 @@
             </div>
         </div>
         <div class="pin pin-3" id="pin-qrcode">
+            <!--<div class="blur-bg"></div>-->
             <div class="v-content">
-                qrcode
+                <img src="src/dist/images/qrcode.jpg" alt=""/>
+            </div>
+            <div class="share-tips">
+                <img src="src/dist/images/share-text.png" alt=""/>
             </div>
         </div>
     </div>

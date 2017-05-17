@@ -735,6 +735,7 @@ html, body {
 }
 
 .pin {
+  display: none;
   opacity: 0;
   z-index: -10;
   position: absolute;
@@ -788,7 +789,24 @@ html, body {
   }
 }
 .portrait-scope .v-content {
-  width: 80vw;
+  width: 40vw;
+  z-index: 2;
+}
+
+.blur-bg {
+  width: 50vw;
+  height: 50vh;
+  background: #fff;
+  -webkit-filter: blur(80px);
+  -moz-filter: blur(80px);
+  filter: blur(80px);
+  border-radius: 100%;
+  left: 50%;
+  top: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  opacity: 0.4;
+  z-index: 1;
 }
 
 .wrapper {
@@ -918,5 +936,72 @@ html, body {
   100% {
     -webkit-transform: translateX(-100%);
     transform: translateX(-100%);
+  }
+}
+#pin-qrcode .v-content {
+  width: auto;
+  height: 90vh;
+  z-index: 2;
+}
+#pin-qrcode .v-content img {
+  width: auto;
+  height: 100%;
+}
+#pin-qrcode .share-tips {
+  position: absolute;
+  right: 0.2rem;
+  top: 0.2rem;
+  z-index: 3;
+  width: 3.78rem;
+  height: 2.03rem;
+  -webkit-animation: shareAni 2s linear infinite;
+  -moz-animation: shareAni 2s linear infinite;
+  animation: shareAni 2s linear infinite;
+}
+@-webkit-keyframes shareAni {
+  0% {
+    -webkit-transform: translateY(10px) scale(1.02);
+  }
+  50% {
+    -webkit-transform: translateY(0px) scale(1);
+  }
+  100% {
+    -webkit-transform: translateY(10px) scale(1.02);
+  }
+}
+@-moz-keyframes shareAni {
+  0% {
+    -moz-transform: translateY(10px) scale(1.02);
+  }
+  50% {
+    -moz-transform: translateY(0px) scale(1);
+  }
+  100% {
+    -moz-transform: translateY(10px) scale(1.02);
+  }
+}
+@-o-keyframes shareAni {
+  0% {
+    -o-transform: translateY(10px) scale(1.02);
+  }
+  50% {
+    -o-transform: translateY(0px) scale(1);
+  }
+  100% {
+    -o-transform: translateY(10px) scale(1.02);
+  }
+}
+@keyframes shareAni {
+  0% {
+    -webkit-transform: translateY(10px) scale(1.02);
+    transform: translateY(10px) scale(1.02);
+  }
+  50% {
+    -webkit-transform: translateY(0px) scale(1);
+    transform: translateY(0px) scale(1);
+  }
+  100% {
+    -webkit-transform: translateY(10px) scale(1.02);
+    transform: translateY(10px) scale(1.02);
   }
 }

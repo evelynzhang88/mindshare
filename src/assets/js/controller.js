@@ -94,10 +94,27 @@
         var touchEle = $('#pin-animate');
         var startX = 0;
         var videoEle = document.getElementById('flash-video');
+        videoEle.load();
+        //var hammertime = new Hammer(touchEle[0], {});
+        //hammertime.on('swipe', function(ev) {
+        //    console.log(ev);
+        //    self.goVideoPage();
+        //    //videoEle.load();
+        //    videoEle.play();
+        //    //if(ev.deltaX<-100){
+        //    ////    go right
+        //    ////    console.log(deltaX);
+        //    //
+        //    //}
+        //});
+
         touchEle.on('touchstart', function(e){
             //console.log(e);
             //e.preventDefault();
             startX = e.changedTouches[0].clientX;
+            if(Common.isWechat()){
+                videoEle.play();
+            }
         });
         touchEle.on('touchstart', function(e){
             e.preventDefault();
@@ -108,12 +125,12 @@
             //    go right
                 console.log(deltaX);
                 self.goVideoPage();
-                videoEle.load();
                 videoEle.play();
             }else{
                 //because only touchstart can play the video, so if is not slide to left, pause the video
-                //videoEle.load();
-                //videoEle.pause();
+                if(Common.isWechat()){
+                    videoEle.pause();
+                }
             }
             e.preventDefault();
             //console.log(deltaX);
@@ -185,31 +202,6 @@
         //});
     }
 
-    controller.prototype.playaudio = function(){
-        //    play audio
-        var audioEle = document.getElementById('bgm');
-        document.addEventListener("WeixinJSBridgeReady", function () {
-            audioEle.play();
-        }, false);
-        audioEle.load();
-        audioEle.play();
-
-        $('#bgm').on('play',function(){
-            ga('send', 'event', 'btn', 'click', 'PlayMusic');
-            $('.icon-bgm').addClass('play');
-        });
-        $('#bgm').on('pause',function(){
-            ga('send', 'event', 'btn', 'click', 'PauseMusic');
-            $('.icon-bgm').removeClass('play');
-        });
-        $('.icon-bgm').on('touchstart',function(){
-            if(audioEle.paused){
-                audioEle.play();
-            }else{
-                audioEle.pause();
-            }
-        });
-    }
     controller.prototype.getTextareaLine = function (c) {
         var self = this;
         var lines = c.split(/\r*\n/);

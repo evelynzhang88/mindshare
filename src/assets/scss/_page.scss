@@ -91,6 +91,7 @@ html, body {
 }
 
 .pin {
+    display: none;
     opacity: 0;
     z-index: -10;
     position: absolute;
@@ -143,10 +144,24 @@ html, body {
 //for portrait-scope
 .portrait-scope{
   .v-content{
-    width: 80vw;
+    width: 40vw;
+    z-index: 2;
   }
 }
-
+.blur-bg{
+  @include size(50vw,50vh);
+  background: #fff;
+  -webkit-filter: blur(80px);
+  -moz-filter: blur(80px);
+  filter: blur(80px);
+  border-radius: 100%;
+  left: 50%;
+  top: 50%;
+  position: absolute;
+  transform: translate(-50%,-50%);
+  opacity: 0.4;
+  z-index: 1;
+}
 
 //for wrapper
 .wrapper {
@@ -245,6 +260,38 @@ html, body {
         100%{
           @include transform(translateX(-100%));
         }
+      }
+    }
+  }
+}
+
+//for pin-qrcode
+#pin-qrcode{
+  .v-content{
+    width: auto;
+    height: 90vh;
+    z-index: 2;
+    img{
+      width: auto;
+      height: 100%;
+    }
+  }
+  .share-tips{
+    position: absolute;
+    right: 0.2rem;
+    top: 0.2rem;
+    z-index: 3;
+    @include size(3.78rem,2.03rem);
+    @include animation(shareAni 2s linear infinite);
+    @include keyframes(shareAni){
+      0%{
+        @include transform(translateY(10px) scale(1.02));
+      }
+      50%{
+        @include transform(translateY(0px) scale(1));
+      }
+      100%{
+        @include transform(translateY(10px) scale(1.02));
       }
     }
   }
