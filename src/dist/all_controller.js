@@ -718,6 +718,10 @@ $(document).ready(function () {
         var baseurl = 'src/dist/images/';
         var imagesArray = [
             baseurl + 'logo-2.png',
+            baseurl + 'mask.png',
+            baseurl + 'P2-BG_00040.jpg',
+            baseurl + 'portrait-tips.jpg',
+            baseurl + 'progress-bar.png',
         ];
         var i = 0, j = 0;
         new preLoader(imagesArray, {
@@ -735,13 +739,12 @@ $(document).ready(function () {
                 //}
                 //self.playaudio();
 
-                //test
-                //self.startUp();
+                self.startUp();
 
             }
         });
         //alert('test');
-        self.startUp();
+
 
 
     };
@@ -749,6 +752,7 @@ $(document).ready(function () {
     controller.prototype.startUp = function () {
         var self = this;
         $('.preload').remove();
+        Common.gotoPin(0);
 
         if(window.innerWidth > window.innerHeight){
             self.doAnimation();
@@ -828,7 +832,7 @@ $(document).ready(function () {
 
         var doSF = setTimeout(function(){
             $('.content .words').addClass('active');
-            //self.sequenceFrame();
+            self.sequenceFrame();
             clearTimeout(doSF);
         },(moveTime+3) * 1000);
 

@@ -803,9 +803,6 @@ html, body {
   color: #fff;
 }
 
-#pin-animate .v-content {
-  background: green;
-}
 #pin-animate .progress {
   position: absolute;
   z-index: 2;
@@ -879,7 +876,6 @@ html, body {
   top: 4.7rem;
   overflow: hidden;
   z-index: 3;
-  background: red;
 }
 #pin-animate .content .words {
   position: absolute;
