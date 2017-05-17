@@ -35,13 +35,18 @@
             baseurl + 'portrait-tips.jpg',
             baseurl + 'progress-bar.png',
         ];
+        //push img frame to array
+        for(var k=0;k<20;k++){
+            var imgSrc = 'src/dist/images/p2-ani/P2-ANI_000'+(40+k)+'.png';
+            imagesArray.push(imgSrc);
+        }
         var i = 0, j = 0;
         new preLoader(imagesArray, {
             onProgress: function () {
                 i++;
                 //var progress = parseInt(i/imagesArray.length*100);
                 //console.log(progress);
-                //$('.preload .v-content').html(''+progress+'%');
+                //$('.preload .progress').html(''+progress+'%');
                 //console.log(i+'i');
             },
             onComplete: function () {
@@ -63,9 +68,9 @@
 
     controller.prototype.startUp = function () {
         var self = this;
-        $('.preload').remove();
-        Common.gotoPin(0);
-
+        //$('.preload').remove();
+        //Common.gotoPin(0);
+        $('.wrapper').addClass('fade');
         if(window.innerWidth > window.innerHeight){
             self.doAnimation();
         }
@@ -151,7 +156,6 @@
         var self = this;
     //    loading first, the show all elements
     //    console.log('doAnimation');
-        $('.wrapper').addClass('fade');
     //    move the mask position
         var moveTime = 1;
         $('.mask').addClass('move');
@@ -164,7 +168,7 @@
 
         var doSF = setTimeout(function(){
             $('.content .words').addClass('active');
-            //self.sequenceFrame();
+            self.sequenceFrame();
             clearTimeout(doSF);
         },(moveTime+3) * 1000);
 
