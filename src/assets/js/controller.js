@@ -62,66 +62,62 @@
         var self = this;
         $('.preload').remove();
 
-        //pc mobile wechat weibo
-        //  if(navigator.appVersion)
-        //mobile
-        //$('.wrapper').addClass('fade');
-        //Common.gotoPin(0);
-        self.bindEvent();
-        //alert('test');
-        console.log(111);
         if(window.innerWidth > window.innerHeight){
             self.doAnimation();
         }
-
-        //if(self.isLandScape()){
-        //
-        //    //self.sequenceFrame();
-        //}
+        self.bindEvent();
 
     };
-
-    //controller.prototype.isLandScape = function(){
-    //    var self = this;
-    //    if(window.innerWidth > window.innerHeight){
-    //        return true;
-    //    }else{
-    //        return false;
-    //    }
-    //};
-
 
     //bind Events
     controller.prototype.bindEvent = function () {
         var self = this;
-        //screen.orientation.addEventListener('change', function() {
-        //    if(screen.orientation.type == 'landscape-primary'){
-        //        //landscape
-        //        self.doAnimation();
-        //    }else{
-        //    //    portrait
-        //
-        //    }
-        //});
+
+        //if the window is orientation
+        window.addEventListener("orientationchange", function() {
+            if(Math.abs(window.orientation) == 90){
+            //    landscape
+                console.log('landscape');
+                self.doAnimation();
+            }else{
+            //    portrait
+                console.log('portrait');
+            }
+        });
+
 
         // touch left action
         var touchEle = $('#pin-animate');
         var startX = 0;
+        var videoEle = document.getElementById('flash-video');
         touchEle.on('touchstart', function(e){
             //console.log(e);
+            e.preventDefault();
             startX = e.changedTouches[0].clientX;
+            videoEle.load();
+            videoEle.play();
         });
         touchEle.on('touchend', function(e){
+            e.preventDefault();
             var deltaX = e.changedTouches[0].clientX - startX;
             if(deltaX<-100){
             //    go right
                 console.log(deltaX);
                 self.goVideoPage();
+            }else{
+                //because only touchstart can play the video, so if is not slide to left, pause the video
+                videoEle.load();
+                videoEle.pause();
             }
             //console.log(deltaX);
         });
 
-    //    play the video
+    //    video play ended
+        videoEle.addEventListener('ended',function(){
+            //alert('video end');
+            $('.video-wrap').removeClass('show');
+            Common.gotoPin(2);
+        });
 
 
     };
@@ -130,7 +126,7 @@
     controller.prototype.doAnimation = function () {
         var self = this;
     //    loading first, the show all elements
-        console.log('doAnimation');
+    //    console.log('doAnimation');
         $('.wrapper').addClass('fade');
     //    move the mask position
         var moveTime = 1;
@@ -144,11 +140,12 @@
 
         var doSF = setTimeout(function(){
             $('.content .words').addClass('active');
-            self.sequenceFrame();
+            //self.sequenceFrame();
             clearTimeout(doSF);
         },(moveTime+3) * 1000);
 
         //self.goVideoPage();
+        //Common.gotoPin(2);
 
     };
 
@@ -176,12 +173,9 @@
     //go video page
     controller.prototype.goVideoPage = function(){
         Common.gotoPin(1);
-        var videoEle = document.getElementById('flash-video');
-        videoEle.play();
-        videoEle.addEventListener('ended',function(){
-            console.log('video end');
-            Common.gotoPin(2);
-        });
+        //videoEle.addEventListener('paused',function(){
+        //    videoEle.play();
+        //});
     }
 
     controller.prototype.playaudio = function(){
@@ -213,7 +207,7 @@
         var self = this;
         var lines = c.split(/\r*\n/);
         return lines.length;
-    };
+    }
 
 
 

@@ -159,7 +159,7 @@ html, body {
 //for pin-animate
 #pin-animate{
   .v-content{
-
+    background: green;
   }
   .progress{
     position: absolute;
@@ -211,6 +211,7 @@ html, body {
     //top: 0;
     z-index: 1;
     @include size(22.08rem,10.86rem);
+    //@include size(auto,96vh);
     //height: 100vh;
     width: auto;
     background: url("../images/P2-BG_00040.jpg") no-repeat;
