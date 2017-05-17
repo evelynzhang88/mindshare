@@ -1,0 +1,10 @@
+version: '2'
+
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: ./docker/web/frontend/Dockerfile
+    image: registry.cn-hangzhou.aliyuncs.com/kuri/mindshare_nginx
+    ports:
+      - 80
