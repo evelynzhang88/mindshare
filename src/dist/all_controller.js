@@ -769,7 +769,7 @@ $(document).ready(function () {
     };
 
     //bind Events
-    controller.prototype.bindEvent = function () {
+    controller.prototype.bindEvent = function(){
         var self = this;
 
         //if the window is orientation
