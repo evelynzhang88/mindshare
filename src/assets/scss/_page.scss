@@ -270,16 +270,23 @@ html, body {
     top: 0.2rem;
     z-index: 3;
     @include size(3.78rem,2.03rem);
-    @include animation(shareAni 2s linear infinite);
+    .icon-share{
+      position: absolute;
+      right: 0;
+      top: 0;
+      z-index: 4;
+      @include size(0.43rem,2.03rem);
+      @include animation(shareAni 2s linear infinite);
+    }
     @include keyframes(shareAni){
       0%{
-        @include transform(translateY(10px) scale(1.02));
+        @include transform(translateY(10px) rotate(15deg));
       }
       50%{
-        @include transform(translateY(0px) scale(1));
+        @include transform(translateY(0px) rotate(0deg));
       }
       100%{
-        @include transform(translateY(10px) scale(1.02));
+        @include transform(translateY(10px) rotate(15deg));
       }
     }
   }

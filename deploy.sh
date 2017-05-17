@@ -17,5 +17,6 @@ rsync \
   --exclude=*.zip\
   --exclude=deploy.sh \
   --exclude=docker/ \
+  --exclude=node_modules/ \
   --delete \
   -arvP . $PRO_SRV:$PRO_WWW
