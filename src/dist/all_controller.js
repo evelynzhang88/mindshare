@@ -732,10 +732,8 @@ $(document).ready(function () {
         new preLoader(imagesArray, {
             onProgress: function () {
                 i++;
-                //var progress = parseInt(i/imagesArray.length*100);
-                //console.log(progress);
-                //$('.preload .progress').html(''+progress+'%');
-                //console.log(i+'i');
+                var progress = parseInt(i/imagesArray.length*100);
+                $('.preload .progress').html(''+progress+'%');
             },
             onComplete: function () {
                 //isTrueNext  = true;
@@ -756,7 +754,7 @@ $(document).ready(function () {
 
     controller.prototype.startUp = function () {
         var self = this;
-        //$('.preload').remove();
+        $('.preload').remove();
         //Common.gotoPin(0);
         $('.wrapper').addClass('fade');
         if(window.innerWidth > window.innerHeight){
