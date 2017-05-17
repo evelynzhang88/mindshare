@@ -784,23 +784,26 @@ $(document).ready(function () {
         var videoEle = document.getElementById('flash-video');
         touchEle.on('touchstart', function(e){
             //console.log(e);
-            e.preventDefault();
+            //e.preventDefault();
             startX = e.changedTouches[0].clientX;
-            videoEle.load();
-            videoEle.play();
+        });
+        touchEle.on('touchstart', function(e){
+            e.preventDefault();
         });
         touchEle.on('touchend', function(e){
-            e.preventDefault();
             var deltaX = e.changedTouches[0].clientX - startX;
             if(deltaX<-100){
             //    go right
                 console.log(deltaX);
                 self.goVideoPage();
+                videoEle.load();
+                videoEle.play();
             }else{
                 //because only touchstart can play the video, so if is not slide to left, pause the video
-                videoEle.load();
-                videoEle.pause();
+                //videoEle.load();
+                //videoEle.pause();
             }
+            e.preventDefault();
             //console.log(deltaX);
         });
 
@@ -832,7 +835,7 @@ $(document).ready(function () {
 
         var doSF = setTimeout(function(){
             $('.content .words').addClass('active');
-            self.sequenceFrame();
+            //self.sequenceFrame();
             clearTimeout(doSF);
         },(moveTime+3) * 1000);
 
