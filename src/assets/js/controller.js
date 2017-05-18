@@ -116,7 +116,7 @@
             //console.log(e);
             //e.preventDefault();
             startX = e.changedTouches[0].clientX;
-            if(Common.isWechat()){
+            if(Common.isWechat() && Common.isIphone()){
                 videoEle.play();
             }
         });
@@ -126,13 +126,13 @@
         touchEle.on('touchend', function(e){
             var deltaX = e.changedTouches[0].clientX - startX;
             if(deltaX<-100){
-            //    go right
-                console.log(deltaX);
+            //    swipe left
+            //    console.log(deltaX);
                 self.goVideoPage();
                 videoEle.play();
             }else{
                 //because only touchstart can play the video, so if is not slide to left, pause the video
-                if(Common.isWechat()){
+                if(Common.isWechat() && Common.isIphone()){
                     videoEle.pause();
                 }
             }

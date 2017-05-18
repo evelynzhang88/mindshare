@@ -36,11 +36,10 @@
                 return false;
             }
         },
-        isWeibo: function () {
+        isIphone: function () {
             var ua = window.navigator.userAgent.toLowerCase();
 
-            if (ua.match(/WeiBo/i) == "weibo") {
-                //在新浪微博客户端打开
+            if (ua.match(/iPhone/i) == "iphone") {
                 return true;
             } else {
                 return false;

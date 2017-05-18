@@ -403,11 +403,10 @@ var Zepto=function(){function L(t){return null==t?String(t):j[S.call(t)]||"objec
                 return false;
             }
         },
-        isWeibo: function () {
+        isIphone: function () {
             var ua = window.navigator.userAgent.toLowerCase();
 
-            if (ua.match(/WeiBo/i) == "weibo") {
-                //在新浪微博客户端打开
+            if (ua.match(/iPhone/i) == "iphone") {
                 return true;
             } else {
                 return false;
@@ -804,7 +803,7 @@ $(document).ready(function () {
             //console.log(e);
             //e.preventDefault();
             startX = e.changedTouches[0].clientX;
-            if(Common.isWechat()){
+            if(Common.isWechat() && Common.isIphone()){
                 videoEle.play();
             }
         });
@@ -814,13 +813,13 @@ $(document).ready(function () {
         touchEle.on('touchend', function(e){
             var deltaX = e.changedTouches[0].clientX - startX;
             if(deltaX<-100){
-            //    go right
-                console.log(deltaX);
+            //    swipe left
+            //    console.log(deltaX);
                 self.goVideoPage();
                 videoEle.play();
             }else{
                 //because only touchstart can play the video, so if is not slide to left, pause the video
-                if(Common.isWechat()){
+                if(Common.isWechat() && Common.isIphone()){
                     videoEle.pause();
                 }
             }
