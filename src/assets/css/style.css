@@ -924,9 +924,12 @@ html, body {
     transform: translateX(-100%);
   }
 }
+#pin-qrcode .blur-bg {
+  opacity: 0.2;
+}
 #pin-qrcode .v-content {
-  width: auto;
-  height: 90vh;
+  width: 10.96rem;
+  height: 3.98rem;
   z-index: 2;
 }
 #pin-qrcode .v-content img {

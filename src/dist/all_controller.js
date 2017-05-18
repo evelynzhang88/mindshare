@@ -721,6 +721,7 @@ $(document).ready(function () {
             baseurl + 'mask.png',
             baseurl + 'P2-BG_00040.jpg',
             baseurl + 'portrait-tips.jpg',
+            baseurl + 'qrcode.png',
             baseurl + 'progress-bar.png',
         ];
         //push img frame to array
@@ -755,7 +756,7 @@ $(document).ready(function () {
     controller.prototype.startUp = function () {
         var self = this;
         $('.preload').remove();
-        Common.gotoPin(0);
+        Common.gotoPin(2);
         $('.wrapper').addClass('fade');
         if(window.innerWidth > window.innerHeight){
             self.doAnimation();

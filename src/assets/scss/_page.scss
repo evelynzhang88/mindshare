@@ -255,9 +255,11 @@ html, body {
 
 //for pin-qrcode
 #pin-qrcode{
+  .blur-bg{
+    opacity: 0.2;
+  }
   .v-content{
-    width: auto;
-    height: 90vh;
+    @include size(10.96rem,3.98rem);
     z-index: 2;
     img{
       width: auto;
