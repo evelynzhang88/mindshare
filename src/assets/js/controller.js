@@ -4,7 +4,22 @@
 ;
 (function () {
     var controller = function () {
-        this.hasShared = false;
+        var i = 0;
+        //apply start and cancel function
+        this.SF = new reqAnimate($('.ani-block'),{
+            fps: 10,
+            totalFrames: 20,
+            time: Infinity,
+            processAnimation:function(){
+                var imgSrc = 'src/dist/images/p2-ani/P2-ANI_000'+(40+i)+'.png';
+                $('.ani-block img').attr('src',imgSrc);
+                //console.log(i);
+                i++;
+                if(i>19){
+                    i=0;
+                };
+            }
+        });
     };
     //init
     controller.prototype.init = function () {
@@ -68,7 +83,7 @@
     controller.prototype.startUp = function () {
         var self = this;
         $('.preload').remove();
-        Common.gotoPin(2);
+        Common.gotoPin(0);
         $('.wrapper').addClass('fade');
         if(window.innerWidth > window.innerHeight){
             self.doAnimation();
@@ -92,6 +107,9 @@
                 console.log('portrait');
             }
         });
+
+
+
 
 
         // touch left action
@@ -129,6 +147,7 @@
             //    swipe left
             //    console.log(deltaX);
                 self.goVideoPage();
+                self.SF.cancel();
                 videoEle.play();
             }else{
                 //because only touchstart can play the video, so if is not slide to left, pause the video
@@ -167,7 +186,7 @@
 
         var doSF = setTimeout(function(){
             $('.content .words').addClass('active');
-            self.sequenceFrame();
+            self.SF.start();
             clearTimeout(doSF);
         },(moveTime+3) * 1000);
 
@@ -179,22 +198,8 @@
     //Sequence Frame
     controller.prototype.sequenceFrame = function(){
         var self = this;
-        var i = 0;
-        var SF = new reqAnimate($('.ani-block'),{
-            fps: 10,
-            totalFrames: 20,
-            time: Infinity,
-            processAnimation:function(){
-                var imgSrc = 'src/dist/images/p2-ani/P2-ANI_000'+(40+i)+'.png';
-                $('.ani-block img').attr('src',imgSrc);
-                //console.log(i);
-                i++;
-                if(i>19){
-                    i=0;
-                };
-            }
-        });
-        SF.start();
+        //SF.start();
+
     };
 
     //go video page
@@ -215,21 +220,8 @@
 
     $(document).ready(function () {
 //    show form
-
-        var u = navigator.userAgent,
-            app = navigator.appVersion;
-
-        if (!!u.match(/AppleWebKit.*Mobile.*/)) {
-            //mobile
-            $('.pc-wrapper').remove();
-            var newFollow = new controller();
-            newFollow.init();
-        } else {
-            //pc
-            $('.preload').remove();
-            $('.pc-wrapper').addClass('fade');
-            $('.wrapper').remove();
-        }
+        var newFollow = new controller();
+        newFollow.init();
 
 
     });
