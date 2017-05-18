@@ -132,22 +132,22 @@ html, body {
 //for portrait-scope
 .portrait-scope{
   .v-content{
-    width: 40vw;
+    width: 30vw;
     z-index: 2;
   }
 }
 .blur-bg{
-  @include size(50vw,50vh);
+  @include size(60vw,60vh);
   background: #fff;
-  -webkit-filter: blur(80px);
-  -moz-filter: blur(80px);
-  filter: blur(80px);
+  -webkit-filter: blur(18vw);
+  -moz-filter: blur(18vw);
+  filter: blur(18vw);
   border-radius: 100%;
   left: 50%;
   top: 50%;
   position: absolute;
   transform: translate(-50%,-50%);
-  opacity: 0.4;
+  opacity: 0.3;
   z-index: 1;
 }
 
@@ -261,7 +261,7 @@ html, body {
 //for pin-qrcode
 #pin-qrcode{
   .blur-bg{
-    opacity: 0.2;
+    opacity: 0.8;
   }
   .v-content{
     @include size(10.96rem,3.98rem);

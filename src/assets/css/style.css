@@ -775,23 +775,23 @@ html, body {
   }
 }
 .portrait-scope .v-content {
-  width: 40vw;
+  width: 30vw;
   z-index: 2;
 }
 
 .blur-bg {
-  width: 50vw;
-  height: 50vh;
+  width: 60vw;
+  height: 60vh;
   background: #fff;
-  -webkit-filter: blur(80px);
-  -moz-filter: blur(80px);
-  filter: blur(80px);
+  -webkit-filter: blur(18vw);
+  -moz-filter: blur(18vw);
+  filter: blur(18vw);
   border-radius: 100%;
   left: 50%;
   top: 50%;
   position: absolute;
   transform: translate(-50%, -50%);
-  opacity: 0.4;
+  opacity: 0.3;
   z-index: 1;
 }
 
@@ -930,7 +930,7 @@ html, body {
   }
 }
 #pin-qrcode .blur-bg {
-  opacity: 0.2;
+  opacity: 0.8;
 }
 #pin-qrcode .v-content {
   width: 10.96rem;
