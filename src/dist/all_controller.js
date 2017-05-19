@@ -733,7 +733,7 @@ $(document).ready(function () {
         var imagesArray = [
             baseurl + 'logo-2.png',
             baseurl + 'mask.png',
-            baseurl + 'P2-BG_00040.jpg',
+            baseurl + 'bg.jpg',
             baseurl + 'portrait-tips.jpg',
             baseurl + 'qrcode.png',
             baseurl + 'progress-bar.png',

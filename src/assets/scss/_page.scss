@@ -28,55 +28,6 @@ html, body {
     @include size(3.28rem, 2.43rem);
 }
 
-//for terms-pop
-.terms-pop {
-    background: transparent;
-    .inner {
-        @include size(7.5rem, 10.79rem);
-        background: url("../images/pop-bg.png") no-repeat;
-        background-size: 100%;
-        box-sizing: border-box;
-        padding-top: 1rem;
-    }
-    .title {
-        background: transparent;
-        color: #9eaee5;
-        font-size: 0.52rem;
-        padding: 0;
-    }
-    .pcontent {
-        text-align: center;
-        margin: 0;
-        padding: 0;
-        .subtitle {
-            display: inline-block;
-            background: #a5a8e0;
-            color: #fff;
-            font-size: 0.3rem;
-            font-weight: normal;
-            padding: 0.04rem 0.2rem;
-            border-radius: 5px;
-            margin-bottom: 0.1rem;
-        }
-        .des {
-            color: #6b6b6b;
-            font-size: 0.24rem;
-            line-height: 1.8;
-        }
-        .product-name {
-            color: #6b6b6b;
-            font-size: 0.22rem;
-        }
-    }
-    .btn-close {
-        top: auto;
-        bottom: 1rem;
-        left: 50%;
-        background: #9eaee5;
-        border-radius: 100%;
-        @include size(0.6rem, 0.6rem);
-    }
-}
 
 .pin {
     display: none;
@@ -132,7 +83,7 @@ html, body {
 //for portrait-scope
 .portrait-scope{
   .v-content{
-    width: 30vw;
+    width: 20vw;
     z-index: 2;
   }
 }
@@ -217,7 +168,7 @@ html, body {
     //@include size(auto,96vh);
     //height: 100vh;
     width: auto;
-    background: url("../images/P2-BG_00040.jpg") no-repeat;
+    background: url("../images/bg.jpg") no-repeat;
     background-size: 100%;
     animation-delay: 1200ms;
     img{
@@ -256,6 +207,25 @@ html, body {
       }
     }
   }
+  .arrow-left{
+    position: absolute;
+    right: 0%;
+    top: 50%;
+    z-index: 10;
+    width: 1.67rem;
+    height: 2.3rem;
+    margin-top: -1.15rem;
+    @include animation(arrowleft 1s linear infinite);
+    @include keyframes(arrowleft){
+      0%{
+        @include transform(translateX(0%));
+      }
+      100%{
+        @include transform(translateX(-50%));
+      }
+    }
+
+  }
 }
 
 //for pin-qrcode
@@ -264,7 +234,7 @@ html, body {
     opacity: 0.8;
   }
   .v-content{
-    @include size(10.96rem,3.98rem);
+    @include size(11.81rem,3.92rem);
     z-index: 2;
     img{
       width: auto;
@@ -277,6 +247,9 @@ html, body {
     top: 0.2rem;
     z-index: 3;
     @include size(3.78rem,2.03rem);
+    >img{
+      opacity: 0.5;
+    }
     .icon-share{
       position: absolute;
       right: 0;
