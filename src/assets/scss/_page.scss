@@ -215,12 +215,15 @@ html, body {
     width: 1.67rem;
     height: 2.3rem;
     margin-top: -1.15rem;
-    @include animation(arrowleft 1s linear infinite);
+    opacity: 0;
+    @include animation(arrowleft 1.5s 3s linear infinite);
     @include keyframes(arrowleft){
       0%{
+        opacity: 0;
         @include transform(translateX(0%));
       }
       100%{
+        opacity: 1;
         @include transform(translateX(-50%));
       }
     }
@@ -231,10 +234,10 @@ html, body {
 //for pin-qrcode
 #pin-qrcode{
   .blur-bg{
-    opacity: 0.8;
+    opacity: 0.5;
   }
   .v-content{
-    @include size(11.81rem,3.92rem);
+    @include size(10.21rem,5.22rem);
     z-index: 2;
     img{
       width: auto;
