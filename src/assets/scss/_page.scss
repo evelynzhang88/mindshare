@@ -216,14 +216,15 @@ html, body {
     height: 2.3rem;
     margin-top: -1.15rem;
     opacity: 0;
-    @include animation(arrowleft 1.5s 3s linear infinite);
+    &.active{
+      opacity: 1;
+      @include animation(arrowleft 1.5s linear infinite);
+    }
     @include keyframes(arrowleft){
       0%{
-        opacity: 0;
         @include transform(translateX(0%));
       }
       100%{
-        opacity: 1;
         @include transform(translateX(-50%));
       }
     }

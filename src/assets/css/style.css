@@ -887,48 +887,43 @@ html, body {
   height: 2.3rem;
   margin-top: -1.15rem;
   opacity: 0;
-  -webkit-animation: arrowleft 1.5s 3s linear infinite;
-  -moz-animation: arrowleft 1.5s 3s linear infinite;
-  animation: arrowleft 1.5s 3s linear infinite;
+}
+#pin-animate .arrow-left.active {
+  opacity: 1;
+  -webkit-animation: arrowleft 1.5s linear infinite;
+  -moz-animation: arrowleft 1.5s linear infinite;
+  animation: arrowleft 1.5s linear infinite;
 }
 @-webkit-keyframes arrowleft {
   0% {
-    opacity: 0;
     -webkit-transform: translateX(0%);
   }
   100% {
-    opacity: 1;
     -webkit-transform: translateX(-50%);
   }
 }
 @-moz-keyframes arrowleft {
   0% {
-    opacity: 0;
     -moz-transform: translateX(0%);
   }
   100% {
-    opacity: 1;
     -moz-transform: translateX(-50%);
   }
 }
 @-o-keyframes arrowleft {
   0% {
-    opacity: 0;
     -o-transform: translateX(0%);
   }
   100% {
-    opacity: 1;
     -o-transform: translateX(-50%);
   }
 }
 @keyframes arrowleft {
   0% {
-    opacity: 0;
     -webkit-transform: translateX(0%);
     transform: translateX(0%);
   }
   100% {
-    opacity: 1;
     -webkit-transform: translateX(-50%);
     transform: translateX(-50%);
   }

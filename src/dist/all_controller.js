@@ -873,6 +873,7 @@ $(document).ready(function () {
 
         var doSF = setTimeout(function(){
             $('.content .words').addClass('active');
+            $('.arrow-left').addClass('active');
             self.SF.start();
             clearTimeout(doSF);
         },(moveTime+3) * 1000);
