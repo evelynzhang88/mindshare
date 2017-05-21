@@ -770,7 +770,7 @@ $(document).ready(function () {
     controller.prototype.startUp = function () {
         var self = this;
         $('.preload').remove();
-        Common.gotoPin(0);
+        Common.gotoPin(1);
         $('.wrapper').addClass('fade');
         if(window.innerWidth > window.innerHeight){
             self.doAnimation();
@@ -794,9 +794,6 @@ $(document).ready(function () {
                 console.log('portrait');
             }
         });
-
-
-
 
 
         // touch left action
@@ -853,6 +850,11 @@ $(document).ready(function () {
             Common.gotoPin(2);
         });
 
+        //skip the video
+        $('.btn-skip').on('touchstart', function(){
+            $('.video-wrap').remove();
+            Common.gotoPin(2);
+        });
 
     };
 

@@ -275,3 +275,16 @@ html, body {
     }
   }
 }
+
+#pin-video{
+  .btn-skip{
+    position: absolute;
+    right: 0.1rem;
+    top: 0.1rem;
+    background: rgba(255,255,255,0.4);
+    z-index: 11;
+    padding: 0.1rem 0.2rem;
+    text-transform: uppercase;
+    font-size: 0.4rem;
+  }
+}
