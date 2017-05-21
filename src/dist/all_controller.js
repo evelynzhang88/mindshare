@@ -727,7 +727,7 @@ function weixinshare(obj){
 $(document).ready(function(){
 
     weixinshare({
-        title1: 'Mindshare Content+团队案例',
+        title1: 'Mindshare Content+ 和你共创高能',
         des: '快上车，看Mindshare Content+如何搞事情',
         link: window.location.href,
         img: window.location.origin+'/src/dist/images/logo-3.png'
