@@ -39,7 +39,7 @@ var path = {
         './src/assets/js/rem.js',
         './src/assets/js/common.js',
         //'./src/assets/js/api.js',
-        //'./src/assets/js/wxshare.js',
+        './src/assets/js/wxshare.js',
         './src/assets/js/controller.js',
     ],
     images:[
