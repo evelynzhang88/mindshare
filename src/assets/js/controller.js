@@ -83,7 +83,7 @@
     controller.prototype.startUp = function () {
         var self = this;
         $('.preload').remove();
-        Common.gotoPin(1);
+        Common.gotoPin(0);
         $('.wrapper').addClass('fade');
         if(window.innerWidth > window.innerHeight){
             self.doAnimation();
