@@ -43,7 +43,7 @@ $(document).ready(function(){
         title1: 'Mindshare Content+团队案例',
         des: 'Mindshare Content+团队案例',
         link: 'window.location.href',
-        img: window.location.origin+'/dist/images/logo-2.png'
+        img: window.location.origin+'/src/dist/images/logo-2.png'
     });
 
 });
