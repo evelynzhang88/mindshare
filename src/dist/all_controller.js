@@ -728,9 +728,9 @@ $(document).ready(function(){
 
     weixinshare({
         title1: 'Mindshare Content+团队案例',
-        des: 'Mindshare Content+团队案例',
-        link: 'window.location.href',
-        img: window.location.origin+'/src/dist/images/logo-2.png'
+        des: '快上车，看Mindshare Content+如何搞事情',
+        link: window.location.href,
+        img: window.location.origin+'/src/dist/images/logo-3.png'
     });
 
 });
